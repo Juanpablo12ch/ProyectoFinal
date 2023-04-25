@@ -1,0 +1,101 @@
+
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="93dp"
+        android:layout_height="86dp"
+        android:background="@drawable/panel_de_administrador" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sistema de monitoreo"
+        android:textSize="34sp"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:fontFamily="arial"
+        android:text="Nombre de usuario" />
+
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Usuario" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:fontFamily="arial"
+        android:text="Contraseña" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="800px"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:text="Aceptar los términos y condiciones."
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¿Estás de acuerdo con el tratamiento de tus datos?"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Aceptar"
+
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="350px"
+        android:layout_height="wrap_content"
+        android:onClick="navegar"
+        android:text="Iniciar sesión" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="350px"
+        android:layout_height="wrap_content"
+        android:onClick="showAlertDialog"
+        android:text="Salir" />
+
+
+</LinearLayout>

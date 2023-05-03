@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
 
-                if(user.getText().toString().equals("Juan Pablo") && pass.getText().toString().equals("1234")
+                if(user.getText().toString().equals("Juan") && pass.getText().toString().equals("1234")
                 && acept.isChecked() && ok.isChecked()){
 
                     Bundle enviaDatos = new Bundle();

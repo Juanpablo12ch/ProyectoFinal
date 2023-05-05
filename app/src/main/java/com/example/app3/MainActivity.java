@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
 
                 if(user.getText().toString().equals("Juan") && pass.getText().toString().equals("1234")
-                && acept.isChecked() && ok.isChecked()){
+                /*&& acept.isChecked() && ok.isChecked()*/){
 
                     Bundle enviaDatos = new Bundle();
                     enviaDatos.putString("keyDatos", user.getText().toString());

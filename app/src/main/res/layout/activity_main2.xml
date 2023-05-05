@@ -29,4 +29,21 @@
         tools:layout_editor_absoluteX="111dp"
         tools:layout_editor_absoluteY="42dp" />
 
+    <TextView
+        android:id="@+id/db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#2196F3"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:text="TextView" />
+
 </LinearLayout >

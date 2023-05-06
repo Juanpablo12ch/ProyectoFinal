@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">App3</string>
     <string name="btnLogin">Ingresar</string>
+    <string name="btn1">Datos</string>
 </resources>

@@ -36,14 +36,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
 
                 if(user.getText().toString().equals("Juan") && pass.getText().toString().equals("1234")
-                /*&& acept.isChecked() && ok.isChecked()*/){
+                && acept.isChecked() && ok.isChecked()){
 
                     Bundle enviaDatos = new Bundle();
                     enviaDatos.putString("keyDatos", user.getText().toString());
 
 
 
-                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                    Intent intent = new Intent(MainActivity.this, MainActivity3.class);
                     intent.putExtras(enviaDatos);
                     intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void navegar(View h){
-        Intent ir = new Intent(this, MainActivity2.class);
+        Intent ir = new Intent(this, MainActivity3.class);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
 

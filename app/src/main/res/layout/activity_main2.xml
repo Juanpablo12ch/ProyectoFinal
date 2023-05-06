@@ -9,6 +9,13 @@
     android:layout_gravity="center"
     tools:context=".MainActivity2">
 
+    <Button
+        android:id="@+id/volver"
+        android:layout_width="350px"
+        android:layout_height="wrap_content"
+        android:onClick="volver"
+        android:text="Volver" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
@@ -35,7 +42,7 @@
         android:layout_height="wrap_content"
         android:textSize="34sp"
         android:textStyle="bold"
-        android:text="TextView" />
+        android:text="" />
 
     <TextView
         android:id="@+id/datos"
@@ -44,6 +51,6 @@
         android:textColor="#2196F3"
         android:textSize="34sp"
         android:textStyle="bold"
-        android:text="TextView" />
+        android:text="" />
 
 </LinearLayout >

@@ -215,6 +215,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void metodoDelete(){
         final String url = "https://run.mocky.io/v3/4b4d895c-d610-4b30-9431-d2ec463f0401";
+        //comentario
         StringRequest request = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

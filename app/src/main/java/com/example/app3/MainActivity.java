@@ -1,5 +1,6 @@
 package com.example.app3;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText user, pass, datos;
@@ -20,10 +27,15 @@ public class MainActivity extends AppCompatActivity {
     Button btnLogin;
     RadioButton ok;
 
+    FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
 
         user = findViewById(R.id.user);
         pass = findViewById(R.id.pass);
@@ -35,7 +47,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                if(user.getText().toString().equals("Juan") && pass.getText().toString().equals("1234")
+                String usuario = user.getText().toString();
+                String contra = pass.getText().toString();
+                firebaseAuth.createUserWithEmailAndPassword(usuario, contra).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Bundle enviaDatos = new Bundle();
+                                enviaDatos.putString("keyDatos", user.getText().toString());
+
+
+
+                                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                                intent.putExtras(enviaDatos);
+                                intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                Toast.makeText(MainActivity.this, "Accediendo", Toast.LENGTH_LONG).show();
+                                finish();
+                            }else{
+                                Toast.makeText(MainActivity.this, "Incorrecto", Toast.LENGTH_LONG).show();
+                            }
+                    }
+                });
+
+               /* if(user.getText().toString().equals("Juan") && pass.getText().toString().equals("1234")
                 && acept.isChecked() && ok.isChecked()){
 
                     Bundle enviaDatos = new Bundle();
@@ -50,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Accediendo", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(MainActivity.this, "Incorrecto", Toast.LENGTH_LONG).show();
-                }
+                }*/
             }
         });
     }

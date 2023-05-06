@@ -7,21 +7,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity3 extends AppCompatActivity {
     Button btn;
+    TextView rDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
         btn = findViewById(R.id.btn1);
+        rDatos = findViewById(R.id.idN);
 
+        Bundle recibeNombre = getIntent().getExtras();
+        String n = recibeNombre.getString("keyDatos");
 
-
-
-
+        rDatos.setText("Bienvenido: " + n);
 
 
 

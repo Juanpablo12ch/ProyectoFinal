@@ -45,6 +45,8 @@ public class MainActivity2 extends AppCompatActivity {
         name = findViewById(R.id.parametro);
         name.setMovementMethod(new ScrollingMovementMethod());
 
+
+
        Bundle recibeDatos = getIntent().getExtras();
         int valor = recibeDatos.getInt("id");
 
@@ -206,6 +208,7 @@ public class MainActivity2 extends AppCompatActivity {
                        db.setText(headers.get(value));
                 }
                 return headers;
+                //rueba
             }
 
         };

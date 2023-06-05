@@ -261,9 +261,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
     public void volver(View h){
 
-        Intent ir = new Intent(MainActivity2.this, MainActivity3.class);
-        ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(ir);
+       startActivity(new Intent(MainActivity2.this, MainActivity3.class));
 
     }
 

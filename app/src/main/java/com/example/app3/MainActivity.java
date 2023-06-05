@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-
         user = findViewById(R.id.user);
         pass = findViewById(R.id.pass);
         btnLogin = findViewById(R.id.btnLogin);
@@ -114,6 +113,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void navegar(View h){
         Intent ir = new Intent(this, MainActivity3.class);
+        ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(ir);
+
+    }
+
+    public void navegar1(View h){
+        Intent ir = new Intent(this, MainActivity4.class);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
 

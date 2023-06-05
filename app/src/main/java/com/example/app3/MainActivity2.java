@@ -39,7 +39,6 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         prueba = Volley.newRequestQueue(this);
-        //String url ="http://www.google.com";
         rDatos = findViewById(R.id.datos);
         db = findViewById(R.id.db);
         name = findViewById(R.id.parametro);
@@ -60,53 +59,7 @@ public class MainActivity2 extends AppCompatActivity {
         }else {
             metodoPut();
         }
-
-
-    //   rDatos.setText(info);
-
-        // initUI();
-        //stringRequest();
-        //obtener();
-      //  metodoGet();
-       // metodoPost();
-        //metodoPut();
-        //metodoDelete();
     }
-
-    //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
-    //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
-    //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
-
-    //private void initUI(){
-    //  rDatos = findViewById(R.id.textView);
-    //}
-
-    /*private void stringRequest(){
-        StringRequest request = new StringRequest(
-                Request.Method.GET,
-                URL1,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //rDatos.setText(response);
-                    }
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }
-
-        );
-        prueba.add(request);
-    }*/
-
-
-    //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
-    //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
-    //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
 
     private void metodoGet() {
         String url = "https://invessoft.com/api/eventos";
@@ -118,10 +71,6 @@ public class MainActivity2 extends AppCompatActivity {
                     for (int i = 0; i < nConsulta.length(); i++) {
                         JSONObject nObjeto = nConsulta.getJSONObject(i);
 
-                        // String id = nObjeto.getString("id_evento");
-                        // String nombre_ev = nObjeto.getString("nombre_evento");
-
-                        //name.setText(id);
                         name.append("Id: " + nObjeto.getString("id_evento") + "\n\n");
                         name.append("Nombre: " + nObjeto.getString("nombre_evento") + "\n\n");
                         name.append("Fecha inicio: " + nObjeto.getString("fecha_inicio") + "\n\n");
@@ -129,35 +78,24 @@ public class MainActivity2 extends AppCompatActivity {
                         name.append("Nombre imagen: " + nObjeto.getString("nombre_imagen") + "\n\n");
                         name.append("Ruta imagen: " + nObjeto.getString("ruta_imagen") + "\n\n");
                         name.append("---------------------------------------" + "\n");
-                        // Toast.makeText(MainActivity2.this, "ID: " + id + "Nombre:" + nombre_ev, Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
 
         },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
-
                     }
                 });
         prueba.add(request);
     }
 
 
-
     private void metodoPost() {
-    //    String url1 = "https://run.mocky.io/v3/a069aceb-61d6-4c3c-928f-b92133a3581f";
-      //  String url2="https://run.mocky.io/v3/d362736e-1400-47be-92f6-89340c62460e";
-        //String url3= "https://run.mocky.io/v3/324cf6fe-6489-4a45-8c03-00b4daabae99";
-
         String url = "https://run.mocky.io/v3/4decaf2c-ed33-4e5d-892a-5ed921d7195b";
-
-
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -180,19 +118,13 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError{
                 Map<String, String> params = new HashMap<String, String>();
-
-                //Toast.makeText(MainActivity2.this, "HOLA", Toast.LENGTH_LONG).show();
-                    // the POST parameters:
                     params.put("nombre_evento", "Prueba1");
                     params.put("nombre_evento", "Prueba233");
 
                 for (String value : params.keySet()) {
-                   // System.out.println("Value = " + value);
-                //    db.setText(params.get(value));
                 }
 
                 for (Map.Entry<String, String> entry : params.entrySet()) {
-                    //System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
                    db.setText(entry.getValue() + "\n\n");
                 }
                     return params;
@@ -204,28 +136,22 @@ public class MainActivity2 extends AppCompatActivity {
                 headers.put("abc", "value");
                 name.setText("entró");
                 for (String value : headers.keySet()) {
-                    // System.out.println("Value = " + value);
                        db.setText(headers.get(value));
                 }
                 return headers;
-                //rueba
             }
-
         };
-
         prueba.add(request);
     }
 
     private void metodoDelete(){
         final String url = "https://run.mocky.io/v3/4b4d895c-d610-4b30-9431-d2ec463f0401";
-        //comentario
         StringRequest request = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //met(response);
                 rDatos.setText(response);
                 Toast.makeText(MainActivity2.this, "Datos eliminados. ", Toast.LENGTH_SHORT).show();
-
             }
         },
                 new Response.ErrorListener() {
@@ -233,38 +159,29 @@ public class MainActivity2 extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
                         Toast.makeText(MainActivity2.this, "Error", Toast.LENGTH_SHORT).show();
-
                     }
                 }
         ) {
        @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String,String> headers = new HashMap<String, String>();
-               //headers.put("Content-Type","application/json; charset=utf-8");
                 headers.put("nombre_evento", "");
                 name.setText("entró");
                 for (String value : headers.keySet()) {
-                    // System.out.println("Value = " + value);
                    db.setText(value + ":" + headers.get(value));
                 }
                 return headers;
             }
-
         };
-
         prueba.add(request);
     }
 
     private void metodoPut(){
         Toast.makeText(MainActivity2.this, "No existe el metodo", Toast.LENGTH_SHORT).show();
-
     }
     public void volver(View h){
-
         Intent ir = new Intent(MainActivity2.this, MainActivity3.class);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
-
     }
-
 }

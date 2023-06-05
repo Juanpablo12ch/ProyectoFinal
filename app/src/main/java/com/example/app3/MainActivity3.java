@@ -26,8 +26,6 @@ public class MainActivity3 extends AppCompatActivity {
 
         rDatos.setText("Bienvenido: " + n);
 
-
-
     }
 
     public void onClick(View h){
@@ -48,7 +46,6 @@ public class MainActivity3 extends AppCompatActivity {
         ir.putExtras(extras);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
-
     }
     public void onClick2(View h){
 
@@ -58,16 +55,13 @@ public class MainActivity3 extends AppCompatActivity {
         ir.putExtras(extras);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
-
     }
     public void onClick3(View h){
-
         Bundle extras = new Bundle();
         extras.putInt("id", 4);
         Intent ir = new Intent(MainActivity3.this, MainActivity2.class);
         ir.putExtras(extras);
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
-
     }
 }

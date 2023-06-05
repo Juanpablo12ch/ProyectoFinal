@@ -63,7 +63,7 @@
         android:id="@+id/checkBox"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:text="Aceptar los términos y condiciones."
+        android:text="Aceptar los Hp términos y condiciones."
         android:textAlignment="center" />
 
     <TextView
@@ -79,7 +79,7 @@
         android:id="@+id/radioButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Aceptar"
+        android:text="Aceptar gonorrea"
 
         />
 
@@ -88,14 +88,14 @@
         android:layout_width="350px"
         android:layout_height="wrap_content"
         android:onClick="navegar"
-        android:text="Iniciar sesión" />
+        android:text="Iniciar sesión en esta perra app" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="350px"
         android:layout_height="wrap_content"
         android:onClick="showAlertDialog"
-        android:text="Salir" />
+        android:text="Salir de esta Hp App" />
 
 
 </LinearLayout>

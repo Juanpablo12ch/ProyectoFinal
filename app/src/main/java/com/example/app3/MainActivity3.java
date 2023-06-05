@@ -10,23 +10,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity3 extends AppCompatActivity {
-    Button btn;
+    Button btn,cerrar;
     TextView rDatos;
+    FirebaseAuth fire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
+
+        fire = FirebaseAuth.getInstance();
+
         btn = findViewById(R.id.btn1);
         rDatos = findViewById(R.id.idN);
+        cerrar = findViewById(R.id.cerrar);
 
         Bundle recibeNombre = getIntent().getExtras();
         String n = recibeNombre.getString("keyDatos");
 
         rDatos.setText("Bienvenido: " + n);
 
-
+        cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fire.signOut();
+                startActivity(new Intent(MainActivity3.this, MainActivity2.class));
+                finish();
+            }
+        });
 
     }
 
@@ -69,5 +83,9 @@ public class MainActivity3 extends AppCompatActivity {
         ir.addFlags(ir.FLAG_ACTIVITY_CLEAR_TASK | ir.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(ir);
 
+    }
+
+    public void gpsUb(View h){
+        startActivity(new Intent(MainActivity3.this, MainActivity5.class));
     }
 }

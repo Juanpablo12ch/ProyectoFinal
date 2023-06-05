@@ -14,9 +14,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
+
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -26,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     CheckBox acept;
     Button btnLogin;
     RadioButton ok;
-
     FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         acept = findViewById(R.id.checkBox);
         ok = findViewById(R.id.radioButton);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

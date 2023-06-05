@@ -9,13 +9,6 @@
     android:layout_gravity="center"
     tools:context=".MainActivity2">
 
-    <Button
-        android:id="@+id/volver"
-        android:layout_width="350px"
-        android:layout_height="wrap_content"
-        android:onClick="volver"
-        android:text="Volver" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
@@ -53,10 +46,17 @@
         android:textStyle="bold"
         android:text="" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/amarillo"
+        android:layout_width="80dp"
+        android:layout_height="92dp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/volver"
+        android:layout_width="350px"
+        android:layout_height="wrap_content"
+        android:onClick="volver1"
+        android:text="Volver" />
 
 </LinearLayout >

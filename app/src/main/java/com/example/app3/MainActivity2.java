@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,20 +32,26 @@ import java.util.Map;
 public class MainActivity2 extends AppCompatActivity {
 
     TextView rDatos, name,db;
+    int num;
+
+   // ProgressBar mProgress = findViewById(R.id.progressBar);
     RequestQueue prueba;
+    ImageView img;
     private static final String URL1 = "https://run.mocky.io/v3/ca53df7b-780e-4481-81ed-aab13e8f8730";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
+        num = (int) (Math.random()*3);
         prueba = Volley.newRequestQueue(this);
         //String url ="http://www.google.com";
         rDatos = findViewById(R.id.datos);
         db = findViewById(R.id.db);
         name = findViewById(R.id.parametro);
         name.setMovementMethod(new ScrollingMovementMethod());
+
+        img = findViewById(R.id.amarillo);
 
 
 
@@ -109,28 +117,45 @@ public class MainActivity2 extends AppCompatActivity {
     //METODO DE PRIMERA PRUEBA PARA EL MÉTODO GET CON VOLLEY
 
     private void metodoGet() {
-        String url = "https://invessoft.com/api/eventos";
+       // String url = "https://invessoft.com/api/eventos";
+        String url = "https://run.mocky.io/v3/5b8e5114-2a07-4215-98ec-9b6f018c1b51";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray nConsulta = response.getJSONArray("eventos");
-                    for (int i = 0; i < nConsulta.length(); i++) {
-                        JSONObject nObjeto = nConsulta.getJSONObject(i);
-
+                    JSONArray nConsulta = response.getJSONArray("mediciones");
+                 //   for (int i = 0; i < nConsulta.length(); i++) {
+                        JSONObject nObjeto = nConsulta.getJSONObject(num);
+                        if(num==1){
+                            name.append("Id: " + nObjeto.getString("id_evento") + "\n\n");
+                            name.append("Nombre: " + nObjeto.getString("nombre") + "\n\n");
+                            name.append("Medición: " + nObjeto.getString("nivel") + "\n\n");
+                            img.setImageResource(R.drawable.tarjetaamarilla);
+                        }else if(num==2){
+                            name.append("Id: " + nObjeto.getString("id_evento") + "\n\n");
+                            name.append("Nombre: " + nObjeto.getString("nombre") + "\n\n");
+                            name.append("Medición: " + nObjeto.getString("nivel") + "\n\n");
+                            img.setImageResource(R.drawable.cancelar);
+                        }else if(num==0){
+                            name.append("Id: " + nObjeto.getString("id_evento") + "\n\n");
+                            name.append("Nombre: " + nObjeto.getString("nombre") + "\n\n");
+                            name.append("Medición: " + nObjeto.getString("nivel") + "\n\n");
+                            img.setImageResource(R.drawable.si);
+                        }
+                    //mProgress.setVisibility(View.INVISIBLE);
                         // String id = nObjeto.getString("id_evento");
                         // String nombre_ev = nObjeto.getString("nombre_evento");
 
                         //name.setText(id);
-                        name.append("Id: " + nObjeto.getString("id_evento") + "\n\n");
-                        name.append("Nombre: " + nObjeto.getString("nombre_evento") + "\n\n");
-                        name.append("Fecha inicio: " + nObjeto.getString("fecha_inicio") + "\n\n");
-                        name.append("Fecha fin: " + nObjeto.getString("fecha_fin") + "\n\n");
-                        name.append("Nombre imagen: " + nObjeto.getString("nombre_imagen") + "\n\n");
-                        name.append("Ruta imagen: " + nObjeto.getString("ruta_imagen") + "\n\n");
-                        name.append("---------------------------------------" + "\n");
+                     //   name.append("Id: " + nObjeto.getString("id_evento") + "\n\n");
+                      //  name.append("Nombre: " + nObjeto.getString("nombre") + "\n\n");
+                       // name.append("Medición: " + nObjeto.getString("nivel") + "\n\n");
+                       // name.append("Fecha fin: " + nObjeto.getString("fecha_fin") + "\n\n");
+                       // name.append("Nombre imagen: " + nObjeto.getString("nombre_imagen") + "\n\n");
+                       // name.append("Ruta imagen: " + nObjeto.getString("ruta_imagen") + "\n\n");
+                       // name.append("---------------------------------------" + "\n");
                         // Toast.makeText(MainActivity2.this, "ID: " + id + "Nombre:" + nombre_ev, Toast.LENGTH_SHORT).show();
-                    }
+                   // }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -259,10 +284,14 @@ public class MainActivity2 extends AppCompatActivity {
         Toast.makeText(MainActivity2.this, "No existe el metodo", Toast.LENGTH_SHORT).show();
 
     }
-    public void volver(View h){
+    public void volver1(View h){
 
        startActivity(new Intent(MainActivity2.this, MainActivity3.class));
 
     }
+
+
+
+
 
 }
